@@ -5,6 +5,8 @@
 
 你可以按任意顺序返回答案。
 
+key: 用字典（hash map来存储，加速index）
+
 '''
 
 class Solution:
