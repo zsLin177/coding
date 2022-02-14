@@ -9,6 +9,79 @@ class TreeNode:
         self.left = left
         self.right = right
 
+def Preorder1(root, res):
+    '''
+    digui
+    '''
+    if root:
+        res.append(root.val)
+        Inorder1(root.left, res)
+        Inorder1(root.right, res)
+
+def Preorder2(root):
+    '''
+    diedai
+    '''
+    res = []
+    stack = []
+    node = root
+    while node or stack:
+        while node:
+            res.append(node.val)
+            stack.append(node)
+            node = node.left
+        node = stack.pop()
+        node = node.right
+
+def Inorder1(root, res):
+    '''
+    digui
+    '''
+    if root:
+        Inorder1(root.left, res)
+        res.append(root.val)
+        Inorder1(root.right, res)
+    
+def Inorder2(root):
+    '''
+    diedai
+    '''
+    stack = []
+    res = []
+    node = root
+    while node or stack:
+        while node:
+            stack.append(node)
+            node = node.left
+        node = stack.pop()
+        res.append(node)
+        node = node.right
+    
+def Postorder1(root, res):
+    if root:
+        Postorder1(root.left)
+        Postorder1(root.right)
+        res.append(root.val)
+
+def Postorder2(root):
+    '''
+    use one stack
+    利用类似的先顺序遍历'root, right, left'，然后逆序就行了
+    '''
+    res = []
+    stack = []
+    node  = root
+    while node or stack:
+        while node:
+            res.append(node.val)
+            stack.append(node)
+            node = node.right
+        node = stack.pop()
+        node = node.left
+    res.reverse()
+    return res
+
+
 def build_link(input):
     '''
     input: [1,2,3] or [[1,2,3],[2,4]]
