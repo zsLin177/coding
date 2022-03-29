@@ -4,8 +4,6 @@
 '''
 
 # Definition for singly-linked list.
-import imp
-
 
 class ListNode:
     def __init__(self, val=0, next=None):

@@ -12,7 +12,8 @@ def find_diff_3tuples(nums):
             res.append(path)
         else:
             for i in range(len(nums)):
-                dfs(nums[0:i]+nums[i+1:], path+[nums[i]])
+                # dfs(nums[0:i]+nums[i+1:], path+[nums[i]])
+                dfs(nums[i+1:], path+[nums[i]])
     
     dfs(nums, [])
     return res
